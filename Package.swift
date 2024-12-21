@@ -4,11 +4,11 @@ import Foundation
 import PackageDescription
 
 extension String {
-    static let hotjar: Self = "GoogleAnalytics"
+    static let googleAnalytics: Self = "GoogleAnalytics"
 }
 
 extension Target.Dependency {
-    static var hotjar: Self { .target(name: .hotjar) }
+    static var googleAnalytics: Self { .target(name: .googleAnalytics) }
 }
 
 extension Target.Dependency {
@@ -25,7 +25,7 @@ let package = Package(
         .iOS(.v17)
     ],
     products: [
-        .library(name: .hotjar, targets: [.hotjar]),
+        .library(name: .googleAnalytics, targets: [.googleAnalytics]),
     ],
     dependencies: [
         .package(url: "https://github.com/coenttb/coenttb-web", branch: "main"),
@@ -35,16 +35,16 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: .hotjar,
+            name: .googleAnalytics,
             dependencies: [
                 .coenttbWeb,
                 .memberwiseInit,
             ]
         ),
         .testTarget(
-            name: .hotjar + " Tests",
+            name: .googleAnalytics + " Tests",
             dependencies: [
-                .hotjar
+                .googleAnalytics
             ]
         )
     ],
